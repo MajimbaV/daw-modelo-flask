@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class= "form-title-newItem">
+        <form method="post">
+          <h3>{{ title }}</h3>
+          <div class= "form-title-item">
+            <label for="JPtitle">
+              Título Original:
+              <input type="text" name="JPtitle" value="{{ entry.titleJP}}">
+            </label>
+            <label for="WEtitle">
+              Título Ocidente:
+              <input type="text" name="WEtitle" value="{{ entry.titleWE}}">
+            </label>
+          </div>
+          <div class= "form-title-item">
+            <label for="JPyear">
+              Ano Original:
+              <input type="text" name="JPyear" value="{{ entry.yearJP}}">
+            </label>
+            <label for="WEyear">
+              Ano Ocidente:
+              <input type="text" name="WEyear" value="{{ entry.yearWE}}">
+            </label>
+          </div>
+          <div class= "form-title-item">
+            <label for="Platforms">
+              Plataformas:
+              <input type="text" name="Platforms" value="{{ entry.platforms}}">
+            </label>
+             <input type="submit" value="Salvar">
+          </div>
+        </form>
+      </div>
+</body>
+</html>

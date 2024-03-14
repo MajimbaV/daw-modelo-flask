@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Lançamentos Main Line</title>
+</head>
+<body>
+  <div id="titles">
+    <h2>Lançamentos da Série Principal</h2>
+    <p style='color: rgb(165, 25, 15)'>OBS: NÃO INCLUINDO SPIN-OFFS</p>
+    <a href="{{url_for('add')}}"> Adicionar Nova Entrada</a>
+    {% if titles.__len__() ==0 %}
+    <p> Não há Nenhuma Entrada Registrada.</p>
+    {% else %}
+    <div>
+      <table class="tableTitles" border="1">
+        <thead>
+          <tr>
+            <th>Título Original</th>
+            <th>Título Ocidente</th>
+            <th>Ano de Lançamento</th>
+            <th>Ano de Lançamento Ocidente</th>
+            <th>Plataformas</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for entry in titles %}  
+          <tr>
+            <td>{{ entry.titleJP }}</td>
+            <td>{{ entry.titleWE }}</td>
+            <td>{{ entry.yearJP }}</td>
+            <td>{{ entry.yearWE }}</td>
+            <td>{{ entry.platforms }}</td>
+            <td><a href="{{ url_for('edit', id=entry.id) }}">Editar</a></td>
+            <td><a href="{{ url_for('delete', id=entry.id) }}">Remover</a></td>
+          </tr>
+        {% endfor %} 
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+</body>
+</html>
